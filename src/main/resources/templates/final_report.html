@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Final Diagnosis</title>
+
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+<body>
+
+
+<table border="1" class = "table table-striped table-responsive-md">
+  <thead>
+  <tr>
+
+    <!-- //<th>OPD number</th> -->
+    <th>OPD number</th>
+    <th>Seizure Type</th>
+    <th>Epilepsy type</th>
+    <th>Non Epileptic Events</th>
+    <th>Epilepsy Syndrome</th>
+    <th>Final Diagnosis</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr th:each="employee : ${final_di}">
+    <!-- 					<td th:text="${employee.id}"></td> -->
+    <td th:text="${employee.id}"></td>
+    <td th:text="${employee.seizure_type}"></td>
+    <td th:text="${employee.epilepsy_type}"></td>
+    <td th:text="${employee.non_epileptic_events}"></td>
+    <td th:text="${employee.epilepsy_syndrome}"></td>
+    <td th:text="${employee.final_diagnosis}"></td>
+    <!-- 					<td><select name="designation"> -->
+    <!-- 							<option th:each="designation :${designations}" -->
+    <!-- 								th:text="${designation}"> -->
+    <!-- 					</select></td> -->
+
+
+    <!--            <td th:text="${employee.CNS_number}">    </td> -->
+
+
+
+
+    <!--  					<td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-primary">Update</a>  -->
+    <!--  					    <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger">Delete</a>  -->
+    <!-- 				</td> -->
+  </tr>
+  </tbody>
+
+</table>
+<hr>
+<h2>Etiology</h2>
+
+<table border="1" class = "table table-striped table-responsive-md">
+  <thead>
+  <tr>
+
+    <!-- //<th>OPD number</th> -->
+    <th>Structural</th>
+    <th>Infectious</th>
+    <th>Immune</th>
+    <th>Metabolic</th>
+    <th>Genetic</th>
+    <th>Unknown</th>
+    <th>Others</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr th:each="employee : ${final_etio}">
+
+    <td th:text="${employee.structural}"></td>
+    <td th:text="${employee.infectious}"></td>
+    <td th:text="${employee.immune}"></td>
+    <td th:text="${employee.metabolic}"></td>
+    <td th:text="${employee.genetic}"></td>
+    <td th:text="${employee.unknown}"></td>
+    <td th:text="${employee.others}"></td>
+
+  </tr>
+  </tbody>
+
+</table>
+</body>
+</html>

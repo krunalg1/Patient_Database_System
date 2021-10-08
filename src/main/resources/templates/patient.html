@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+<style>
+    sup {
+      color: red;
+    }
+    div.scroll {
+      padding: 10px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+    }
+    body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  background-image: -moz-linear-gradient();
+}
+</style>
+<body th:style="'background-image:url(' + @{/p1.jpeg} + '); background-repeat: no-repeat, repeat; background-size: cover;  background-attachment: fixed; background-image: -moz-linear-gradient(); padding:30px;'">
+<h2 class="text-center"><u>Patient Personal Details</u></h2>
+<form action="#"  th:action="@{/savepatient}" th:object="${patient}" method="POST">
+<!--    <p>Id: <input type="text" th:field="*{id}" /></p>-->
+<!--    <p>Message: <input type="text" th:field="*{content}" /></p>-->
+<!--    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>-->
+
+    <div class="row ">
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label"><b>1.OPD Number<sup>*</sup></b></label>
+            <div class="col-sm-3">
+                <input type="number" class="form-control" th:field="*{opd_num}" name="opd_num">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label"><b>2. Date of Birth:</b></label>
+            <div class="col-sm-3">
+                <input type="date" class="form-control" th:field="*{Date}" name="date">
+           </div>
+       </div>
+
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label"><b>3. Age</b></label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" th:field="*{age}">
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><b>4. First Name<sup>*</sup></b></label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" th:field="*{firstname}">
+        </div>
+        <label class="col-sm-2 col-form-label"><b>Last Name</b></label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" th:field="*{lastname}">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><b>5. Gender:</b></label>
+        <div class="col-sm-2">
+            <select class="form-select" aria-label="Default select example" th:field="*{gender}">
+                <option th:each="pat:${pat}"  value=""/>Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Transgender">Transgender</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><b>6. Address for Correspondence: </b></label>
+        <div class="col-sm-5 form-floating">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"
+                        style="height: 100px ;" th:field="*{address}"></textarea>
+            <label for="floatingTextarea"></label>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><b>7.Handedness</b></label>
+        <div class="col-sm-4">
+            <select class="form-select" aria-label="Default select example" th:field="*{handedness}">
+                <option th:each="pat:${pat}"  value=""/>Select</option>
+                <option  value="Right">Right</option>
+                <option value="Left">Left</option>
+                <option value="Ambidextrous">Ambidextrous</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><b>8. Family history of left handedness </b></label>
+        <div class="col-sm-6">
+            <!--<input class="form-check-input" type="radio" name="gridRadios" th:field="*{family_histofhand}" id="gridRadios1" value="yes">
+            <label class="form-check-label" for="gridRadios1">Yes</label>
+
+            <input class="form-check-input" type="radio" name="gridRadios" th:field="*{family_histofhand}" id="gridRadios2" value="no">
+            <label class="form-check-label" for="gridRadios2">No</label>-->
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio"
+                                                  th:field="*{family_histofhand}" name="family" value="Yes">Yes
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio"
+                                                  th:field="*{family_histofhand}" name="family" value="No">No<br>
+
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><b>9. Weight (in kg )</b></label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" th:field="*{weight}">
+        </div>
+    </div>
+
+
+   <!-- <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><b>10. Education</b></label>
+        <div class="col-sm-4">
+            <script type="text/javascript">
+                    function showfield(name){
+                      if(name == 'others') {
+                        document.getElementById('div1').innerHTML = 'Others: <input type="text" name="other" th:field="*{education}" />';
+                      }
+                      else if(name == 'other') {
+                        document.getElementById('div2').innerHTML = 'Others: <input type="text" name="other" th:field="*{Referred_by}" />';
+                      }
+                      else {
+                        document.getElementById('div1').innerHTML='';
+                        document.getElementById('div2').innerHTML='';
+                      }
+                    }
+                    </script>
+            <select class="form-select" aria-label="Default select example" th:field="*{education}"
+                    onchange="showfield(this.options[this.selectedIndex].value)" required>
+                <option th:each="pat:${pat}"  value=""/>Select</option>
+                <option value="Illitrate">Illitrate</option>
+                <option value="Primary (4th grade)">Primary (4th grade)</option>
+                <option value="Secondary (5th-9th)">Secondary (5th-9th)</option>
+                <option value="S.S.C (10th)">S.S.C (10th)</option>
+                <option value="Junior College/ H.S.C. (12th)">Junior College/ H.S.C. (12th)</option>
+                <option value="Degree/ graduate college (13th-15th)">Degree/ graduate college (13th-15th)</option>
+                <option value="Postgraduate">Postgraduate</option>
+                <option value="other">Others</option>
+            </select>
+            <div id="div1"></div>
+        </div>
+    </div>
+-->
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><b>10. Education</b></label>
+        <div class="col-sm-4">
+    <select name="color" aria-label="Default select example" onchange='checkvalue(this.value)' th:field="*{education}">
+        <option value="">select</option>
+        <option value="Illitrate" >Illitrate</option>
+        <option value="Primary (4th grade)" >Primary (4th grade)</option>
+        <option value="Secondary (5th-9th)" >Secondary (5th-9th)</option>
+        <option value="S.S.C (10th)" >S.S.C (10th)</option>
+        <option value="Junior College/ H.S.C. (12th)" >Junior College/ H.S.C. (12th)</option>
+        <option value="Degree/ graduate college (13th-15th)" >Degree/ graduate college (13th-15th)</option>
+        <option value="Postgraduate" >Postgraduate</option>
+        <option value="others">others</option>
+    </select>
+    <input type="text" name="color" id="color" style='display:none' th:field="*{education}"/>
+    <script >
+                function checkvalue(val)
+{
+    if(val==="others")
+       document.getElementById('color').style.display='block';
+    else
+       document.getElementById('color').style.display='none';
+}
+            </script>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><b>11. Marital Status:</b></label>
+        <div class="col-sm-4">
+            <select class="form-select" aria-label="Default select example" th:field="*{marital_status}">
+                <option th:each="pat:${pat}"  value=""/>Select</option>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Separated">Separated</option>
+                <option value="Divorced">Divorced</option>
+                <option value="Widowed">Widowed</option>
+            </select>
+
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><b>12. Occupation</b></label>
+        <div class="col-sm-4">
+            <select class="form-select" aria-label="Default select example" th:field="*{Occupation}">
+                <option th:each="pat:${pat}"  value=""/>Select</option>
+                <option value="Unemployed">Unemployed</option>
+                <option value="Household work">Household work</option>
+                <option value="Employed - part time">Employed - part time</option>
+                <option value="Employed – full time">Employed – full time</option>
+                <option value="Self employed">Self employed</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><b>13.Informant</b></label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" th:field="*{Informant}">
+        </div>
+    </div>
+    <!--<div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><b>14. Referred by</b></label>
+        <div class="col-sm-4">
+            <select class="form-select" aria-label="Default select example" th:field="*{Referred_by}"
+                    onchange="showfield(this.options[this.selectedIndex].value)" required>
+                <option th:each="pat:${pat}"  value=""/>Select</option>
+                <option value="Generalpractitioner">Generalpractitioner</option>
+                <option value="Physician">Physician</option>
+                <option value="Pediatrician">Pediatrician</option>
+                <option value="Neurologist">Neurologist</option>
+                <option value="Neurosurgeon">Neurosurgeon</option>
+                <option value="others">Others</option>
+            </select>
+            <div id="div2"></div>
+        </div>
+    </div>-->
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"><b>14. Referred by</b></label>
+        <div class="col-sm-4">
+            <select name="color" aria-label="Default select example" onchange='checkvalue1(this.value)'th:field="*{Referred_by}">
+                <option value="">select</option>
+                <option value="Generalpractitioner" >Generalpractitioner</option>
+                <option value="Physician" >Physician</option>
+                <option value="Pediatrician" >Pediatrician</option>
+                <option value="Neurologist" >Neurologist</option>
+                <option value="Neurosurgeon" >Neurosurgeon</option>
+                <option value="others">others</option>
+            </select>
+            <input type="text" name="color" id="color1" style='display:none' th:field="*{Referred_by}"/>
+            <script >
+                function checkvalue1(val)
+{
+    if(val==="others")
+       document.getElementById('color1').style.display='block';
+    else
+       document.getElementById('color1').style.display='none';
+}
+            </script>
+        </div>
+    </div>
+
+    </div>
+    <button type="submit" class="btn btn-success">Save Patient</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="reset" class="btn btn-secondary">Reset</button>
+
+</form>
+<br>
+<a th:href = "@{/}"> Back to Home Page</a>
+
+</body>
+</html>

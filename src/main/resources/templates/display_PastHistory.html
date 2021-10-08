@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Patient Past Medical History</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+</head>
+<body>
+<table border="1" class = "table table-striped table-responsive-md">
+    <thead>
+    <tr>
+
+        <th>OPD number</th>
+        <th>Compliance</th>
+        <th>Maximum seizure free interval</th>
+        <th> Exact Seizure Duration</th>
+        <th>Current ASM</th>
+        <th>ASM tried </th>
+        <th>Adverse effects of ASM</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="emp : ${history}">
+        <td th:text="${emp.id}"></td>
+        <td th:text="${emp.Compliance}"></td>
+        <td th:text="${emp.Maximum_seizure_free_interval}"></td>
+        <td th:text="${emp.Seizure_Duration}"></td>
+        <td th:text="${emp.Current_ASM}"></td>
+        <td th:text="${emp.ASM_tried}"></td>
+        <td th:text="${emp.Adverse_effects_of_ASM}"></td>
+
+        <td>  <!-- <a th:href="@{/updatePastHistory/{id}(id=${emp.id})}" class="btn btn-primary">Update</a>  -->
+            <a th:href="@{/updateHistory/{id}(id=${emp.id})}" class="btn btn-primary"><b>Update</b></a>
+            <a th:href="@{/deletePastHistory/{id}(id=${emp.id})}" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+
+    </tbody>
+
+</table>
+<div class="container">
+    <a th:href="@{/newPastHistory}"><button type="button" style="width:120px; height:40px; background-color:aqua;border-radius:10px";>ADD
+        History</button></a>
+
+    | <a th:href="@{/}"><button type="button" style="width:180px; height:40px; background-color:orange;border-radius:10px";>Back</button></a>
+</div>
+</body>
+</html>

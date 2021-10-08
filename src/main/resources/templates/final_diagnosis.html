@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Insert title here</title>
+
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+  <script type="text/javascript">
+ 					    function ShowHideDi(chPassport) {
+       			  		var dPassport = document.getElementById("dPassport");
+      			  		dPassport.style.display = chPassport.checked ? "block" : "none";
+   					 }
+			  </script>
+
+  <script type="text/javascript">
+ 					    function ShowStructural(structural) {
+       			  		var structure = document.getElementById("structure");
+       			  	structure.style.display = structural.checked ? "block" : "none";
+   					 }
+			  </script>
+
+  <script type="text/javascript">
+ 					    function showText(others) {
+       			  		var other = document.getElementById("other");
+       			  	other.style.display = others.checked ? "block" : "none";
+   					 }
+			  </script>
+  <!-- 			   <script type="text/javascript"> -->
+  <!-- //  					    function ShowCheckbox(etiology) { -->
+  <!-- //        			  		var etiologyCheckbox = document.getElementById("etiologyCheckbox"); -->
+  <!-- //        			  	etiologyCheckbox.style.display = etiology.checked ? "block" : "none"; -->
+  <!-- //    					 } -->
+  <!-- 			  </script> -->
+
+
+
+</head>
+
+
+<body>
+<form action="#"  th:action="@{/saveDignosis}" th:object="${diagnosis}" method="post">
+  <input type="text" th:field="*{id}" placeholder="OPD number" class="form-control mb-4 col-4"/>
+
+  <input list="text" name="seizure"  th:field="*{seizure_type}" placeholder="seizure_type"
+         class="form-control mb-4 col-4"/>
+  <datalist id="text">
+    <option value="a) Generalized onset (Motor)">
+    <option value="b) Generalized onset (Non motor)">
+    <option value="c) Focal onset (Motorwith impaired awareness)">
+    <option value="d) Focal onset (Non motor with impaired awareness)">
+    <option value="e) Focal onset (Motorwith awareness)">
+    <option value="f) Focal onset (Non motorwith awareness)">
+    <option value="g) Focal to bilateral tonic clonic">
+    <option value="h) Unknown onsetbilateral TCS">
+    <option value="i) Epileptic spasms">
+    <option value="h) Unclassified">
+  </datalist>
+
+  <input type="text" name="non_epileptic_events"  th:field="*{non_epileptic_events}"
+
+         placeholder="non_epileptic_events" class="form-control mb-4 col-4"/>
+
+
+
+  <input list="text1" name="epilepsy_type"  th:field="*{epilepsy_type}" placeholder="epilepsy_type"
+         class="form-control mb-4 col-4"/>
+  <datalist id="text1">
+    <option value="a) focal">
+    <option value="b)Generalised">
+    <option value="c) Combine">
+    <option value="d) Unknown">
+
+  </datalist>
+  <input type="text" name="epilepsy_syndrome" th:field="*{epilepsy_syndrome}" placeholder=" Define epilepsy syndrome"
+         class="form-control mb-4 col-4"/>
+
+
+
+
+
+
+  <div th:object="${etiology}">
+    <!--    			  <input type="text" th:field="*{OPD_number}" placeholder="OPD number" class="form-control mb-4 col-4"/>       -->
+
+    <label for="etiology">
+      <span id="etiology" class="form-control mb-4 col-4" onclick="ShowCheckbox(this)" >Etiology </span>
+
+    </label>
+
+    <div  id="etiologyCheckbox"    >
+      <ul class="items" >
+        <li><label for="structural">
+          <input type="checkbox" id="structural" onclick="ShowStructural(this)" />
+          Structural
+        </label>
+
+          <div id="structure" style="display: none">
+            <input list="struct" th:field="*{structural}" placeholder="structural" class="form-control mb-4 col-4">
+            <datalist id="struct">
+              <option value="MTS">
+              <option value="FCD type-I">
+              <option value="FCD type-II">
+              <option value="Tumors (DNET/ GG/astrocytoma/hamartoma/glioma/ others)">
+              <option value="Vascular malformations (cavernoma, AVM etc)">
+              <option value="Malformations of cortical development(TSC, hemimegalencephaly, heterotopias,)">
+              <option value="HIE">
+              <option value="Stroke">
+              <option value="Trauma">
+              <option value="Gliosis/encephalomalacia">
+              <option value="Porencephalic cyst">
+              <option value="Infection (granuloma/ abscess, etc)">
+            </datalist>
+          </div>
+
+
+
+
+
+        </li>
+        <li>
+
+
+          <label for="chPassport">
+            <input type="checkbox" id="chPassport" onclick="ShowHideDi(this)" />
+            Infectious
+          </label>
+
+          <div id="dPassport" style="display: none">
+
+
+            <input id="infect1"    list="infect" th:field="*{infectious}" placeholder="infectious" class="form-control mb-4 col-4">
+            <datalist id="infect">
+              <option value="Tuberculosis">
+              <option value="NCC">
+              <option value="HIV">
+              <option value="SSPE">
+              <option value="Others">
+
+            </datalist>
+
+
+
+          </div>
+
+
+
+
+
+
+
+        </li>
+        <li><input type="checkbox" th:field="*{immune}"  value="Immune"  />Immune  </li>
+        <li><input type="checkbox" th:field="*{metabolic}" value="Metabolic" />Metabolic </li>
+        <li><input type="checkbox" th:field="*{genetic}"  value="Genetic"  />Genetic </li>
+        <li><input type="checkbox" th:field="*{unknown}"  value="Unknown"  />Unknown  </li>
+
+        <li>
+          <label for="others">
+
+            <input type="checkbox" id="others" onclick="showText(this)"/>Other
+
+          </label>
+
+          <div  id="other" style="display: none" >
+
+            <input type="text" th:field="*{others}" class="form-control mb-4 col-4"   />
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+
+  <input type="text"  th:field="*{final_diagnosis}" placeholder="Final Diagnosis" class="form-control mb-4 col-4"/>
+
+
+
+
+  <input type="submit" class="btn btn-info col-2">
+  <a th:href = "@{/final_report}" class="btn btn-info col-2"> See Final Diagnosis Report </a>
+
+
+
+</form>
+<form action="searchDignosis"  >
+  <br>
+  <h3>Search for Diagnosis Report</h3>
+  <br>
+  <h4 style="color: blue">Diagnosis Id:</h4>  <input type="number" name="id" style="color: blue "><br>
+  <input type="submit" value="SEARCH">
+</form>
+</body>
+</html>

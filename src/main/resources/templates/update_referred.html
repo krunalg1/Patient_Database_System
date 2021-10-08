@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="ISO-8859-1">
+  <title>e-Clinic Database InfoSystem</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+  <script
+          src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script
+          src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+.dropdown-submenu {
+	position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+	top: 0;
+	left: 100%;
+	margin-top: -1px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container"
+     style="background: lightcyan; padding: 30px; margin: 5px; border: 2px; text-align: centre">
+  <h1 style="text-align: center;">REFERRED TO</h1>
+  <hr>
+  <h2>Update Referred To Data</h2>
+  <br>
+  <hr>
+  <form action="#" th:action="@{/saveReferred}" th:object="${referred}"
+        method="POST">
+
+    <label class="col-sm-2 col-form-label"><b>Referredid<sup>*</sup></b></label>
+    <div class="col-sm-3">
+      <input type="number" class="form-control" th:field="*{id}" name="id">
+    </div>
+
+
+
+    <label><b>REFERRED TO :</b></label><br>
+
+    <input type="checkbox"
+           name="referred1" th:field="*{referredto}"
+           value="I.	Neurosurgery"> <label>
+    &nbsp; I. Neurosurgery</label><br>
+
+    <input type="checkbox"
+           name="referred1" th:field="*{referredto}"
+           value="II.	Cardiology"> <label>
+    &nbsp; II. Cardiology</label><br>
+
+    <input type="checkbox"
+           name="referred1" th:field="*{referredto}"
+           value="III.	Medicine">
+    <label> &nbsp; III. Medicine</label><br>
+
+    <input type="checkbox"  name="referred1"
+           th:field="*{referredto}" value="IV.	Pediatrics"> <label
+  > &nbsp; IV. Pediatrics</label><br>
+
+    <input type="checkbox"  name="referred1"
+           th:field="*{referredto}" value="IV.	Pediatrics"> <label
+  > &nbsp; V. Ophthalmology</label><br>
+
+    <input
+            type="checkbox"  name="referred1"
+            th:field="*{referredto}" value="VI.	ENT"> <label
+  > &nbsp; VI. ENT</label><br>
+
+    <input
+            type="checkbox"  name="referred1"
+            th:field="*{referredto}" value="VII.	Psychiatry"> <label
+  > &nbsp; VII. Psychiatry</label><br>
+
+    <input
+            type="checkbox"  name="referred1"
+            th:field="*{referredto}" value="VIII.	MSW"> <label
+  > &nbsp; VIII. MSW</label><br>
+
+    <input
+            type="checkbox"  name="referred1"
+            th:field="*{referredto}" value="IX.	TDM Lab"> <label
+  > &nbsp; IX. TDM Lab</label><br>
+
+    <input
+            type="checkbox"  name="referred1"
+            th:field="*{referredto}" value="X.	Others"> <label
+  > &nbsp; X. Others</label><br>
+
+
+    <button type="submit" class="btn btn-success">Update Referred</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="reset" class="btn btn-secondary">Reset</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/"><button type="button" value="BACK" class="btn btn-info" >BACK</button></a>
+    <!--  <a href="/display"><input type="submit" style="width: 450; height: 30; color:red; background:lightgreen;">Home</a>  -->
+    <!-- <a th:href="/display"><input type="submit" class="btn btn-info col-2"> </a> -->
+  </form>
+</div>
+</body>
+</html>

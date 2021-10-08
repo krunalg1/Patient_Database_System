@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title> Epilepsy Patient clinical database</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+	<!-- <h1>Hello World</h1> -->
+
+	<div align="center" class="container" style="background-color: lightcyan;">
+		<!--  <div class="row">-->
+
+		<h1>Patient's Family History Data</h1>
+
+		<br>
+		<hr>
+		<!-- Add hidden form field to handle update -->
+			<!-- <input type="hidden" th:field="*{id}" /> -->
+			
+		<!-- <a href="/showNewHistoryForm"><button type="button"
+				style="width: 180px; height: 40px; background-color: aqua; border-radius: 10px">ADD
+				History</button></a> -->
+		<!--  width="70%" border="1"-->
+		<table class="table table-striped table-hover table-dark" width="70%"
+			border="1">
+			<thead>
+				<tr>
+					<th>OPD.NO</th>
+					<th>Significant</th>
+					<th>Febrile</th>
+					<th>Epilepsy</th>
+					<th>Familial</th>
+					<th>Delay</th>
+					<th>Disability</th>
+					<th>Others</th>
+					<!-- <th>ACTION</th> -->
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="familyhistory: ${listfamilyhistory}">
+					<td th:text="${familyhistory.id_famhis}"></td>
+					<td th:text="${familyhistory.Significant}"></td>
+					<td th:text="${familyhistory.Febrile}"></td>
+					<td th:text="${familyhistory.Epilepsy}"></td>
+					<td th:text="${familyhistory.Familial}"></td>
+					<td th:text="${familyhistory.Delay}"></td>
+					<td th:text="${familyhistory.Disability}"></td>
+					<td th:text="${familyhistory.Others}"></td>
+					<!-- <td><a
+						th:href="@{/showFormForUpdate/{id}(id=${familyhistory.id})}"
+						class="btn btn-primary"><b>Update</b></a>
+						 <a th:href="@{/deleteHistory/{id}(id=${familyhistory.id})}" class="btn btn-danger"><b>Delete</b></a> -->
+						 <!--<td>
+			  <button th:if="${emp.designation}=='Manager'">APPRAISAL</button>
+			<button th:if="${emp.designation}=='Admin'">CREATE/DELETE/UPDATE</button>
+			<button th:unless="${emp.designation}=='Admin'">VIEW</button>
+			
+			</td>-->
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<hr>
+	<div class="container">
+		
+		<!-- <a th:href="@{/showNewHistoryForm}"><button type="button">ADD
+				History</button></a>  -->
+		<!-- | <a href="/display.html"><button type="button">Display</button></a> -->
+		<!-- <a th:href = "@{/showNewHistoryForm}" style="width: 180px; height: 40px; background-color: aqua; border-radius: 10px"> Add History</a> -->
+		<a href="/showNewHistoryForm"><button type="button" style="width: 140px; height: 40px; background-color: aqua; border-radius: 10px"><b>Add History</b></button></a>
+		| <a href="/display"><button type="button"
+				style="width: 140px; height: 40px; background-color: orange; border-radius: 10px"><b>Back</b></button></a>
+	</div>
+	<!-- </div> -->
+</body>
+</html>

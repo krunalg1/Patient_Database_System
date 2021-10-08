@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title> Epilepsy Patient clinical database</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!-- <script type="text/javascript">
+        function ShowHideDi(chConsanguinity) {
+            var dConsanguinity = document.getElementById("dConsanguinity");
+            dConsanguinity.style.display = chConsanguinity.checked ? "block" : "none";
+        }
+    </script> -->
+
+<!-- <script type="text/javascript">
+        function ShowHideDi(chLow_Birth) {
+            var dLow_Birth = document.getElementById("dLow_Birth");
+            dLow_Birth.style.display = chLow_Birth.checked ? "block" : "none";
+        }
+    </script> -->
+
+<!-- <script type="text/javascript">
+        function ShowStructural(structural) {
+            var structure = document.getElementById("structure");
+            structure.style.display = structural.checked ? "block" : "none";
+        }
+    </script> -->
+
+<script type="text/javascript">
+        function showText1(Consanguinity) {
+            var consag = document.getElementById("consag");
+            consag.style.display = Consanguinity.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText2(Low_Birth) {
+            var lbirth = document.getElementById("lbirth");
+            lbirth.style.display = Low_Birth.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText3(Birth_asphyxia) {
+            var basphyxia = document.getElementById("basphyxia");
+            basphyxia.style.display = Birth_asphyxia.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText4(NICU) {
+            var nic = document.getElementById("nic");
+            nic.style.display = NICU.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText5(Breastfeeding) {
+            var bfeeding = document.getElementById("bfeeding");
+            bfeeding.style.display = Breastfeeding.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText6(Attained) {
+            var attain = document.getElementById("attain");
+            attain.style.display = Attained.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText7(NeuroReg) {
+            var neuro = document.getElementById("neuro");
+            neuro.style.display = NeuroReg.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText8(HOjerk) {
+            var jerk = document.getElementById("jerk");
+            jerk.style.display = HOjerk.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText9(Significant) {
+            var signi = document.getElementById("signi");
+            signi.style.display = Significant.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText10(Febrile) {
+            var feb = document.getElementById("feb");
+            feb.style.display = Febrile.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText11(Epilepsy) {
+            var epil = document.getElementById("epil");
+            epil.style.display = Epilepsy.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText12(Famil) {
+            var fam = document.getElementById("fam");
+            fam.style.display = Famil.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText13(Develepmental) {
+            var develop = document.getElementById("develop");
+            develop.style.display = Develepmental.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText14(Disable) {
+            var dis = document.getElementById("dis");
+            dis.style.display = Disable.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function showText15(Others) {
+            var other = document.getElementById("other");
+            other.style.display = Others.checked ? "block" : "none";
+        }
+    </script>
+
+<!--ICTUS Script-->
+<script type="text/javascript">
+        function ShowHideDi(automatism) {
+            var dPassport = document.getElementById("auto");
+            dPassport.style.display = automatism.checked ? "block" : "none";
+        }
+    </script>
+<script type="text/javascript">
+        function ShowHideSpeech(speech) {
+            var dPassport = document.getElementById("speech1");
+            dPassport.style.display = speech.checked ? "block" : "none";
+        }
+    </script>
+<script type="text/javascript">
+        function ShowHideMotor(speech) {
+            var dPassport = document.getElementById("motor1");
+            dPassport.style.display = motor.checked ? "block" : "none";
+        }
+    </script>
+
+<script type="text/javascript">
+        function ShowHideArousal(arousal) {
+            var dPassport = document.getElementById("arousal1");
+            dPassport.style.display = arousal.checked ? "block" : "none";
+        }
+    </script>
+<!--ICTUS Script-->
+<style>
+.dropdown-submenu {
+	position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+	top: 0;
+	left: 100%;
+	margin-top: -1px;
+}
+</style>
+
+</head>
+
+<body>
+
+	<div class="container" style="background-color: lightcyan;">
+		<!-- ; padding: 30px; margin: 5px; border: 2px; text-align: centre> -->
+		<h1 style="text-align: center;">HISTORY</h1>
+		<hr>
+		<h2>Save History</h2>
+		<br>
+		<hr>
+		<form action="#" th:action="@{/saveHistory}" th:object="${history}"
+			method="POST">
+
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" />
+			
+			<!-- <form action="birthhistory" method="POST"> -->
+
+			<!-- <div th:object="${birthHistory}">
+				<label><b>I. Birth History :</b></label>
+				<ul>
+				<li><label for="Consanguinity"> 
+				
+				<input type="checkbox" th:field="*{Consanguinity}" value="Consanguinity"
+						name="bh" id="Consanguinity" onclick="showText1(this)" />Consanguinity
+
+				</label>
+
+					<div id="consag" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="radio" th:field="*{Consanguinity}" name="cs" value="cYes" />Yes
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <input type="radio"
+							th:field="*{Consanguinity}" name="cs" value="cNo" />No
+					</div></li>
+
+				<li><label for="Preterm_full_term"> 
+				<input type="checkbox" th:field="*{Preterm_full_term}" name="bh" value="Preterm_full_term"
+						id="others" />Preterm/ full term
+
+				</label></li>
+
+				<li><label for="Hospital_delivery_Home_delivery"> 
+				<input
+						type="checkbox" th:field="*{Hospital_delivery_Home_delivery}"
+						name="bh" value="Hospital_delivery_Home_delivery" id="others" />Hospital delivery/ Home delivery
+
+				</label></li>
+
+				<li><label for="NVD_Normal_vaginal_delivery_LSCS"> 
+				<input type="checkbox" th:field="*{NVD_Normal_vaginal_delivery_LSCS}"
+						name="bh" value="NVD_Normal_vaginal_delivery_LSCS" id="others" />NVD (Normal vaginal delivery)/ LSCS
+
+				</label></li>
+
+				<li><label for="Low_Birth"> 
+				<input type="checkbox" th:field="*{Low_birth_weight}"
+						 name="bh" value="Low_Birth" id="Low_Birth"
+						onclick="showText2(this)" />Low birth weight
+
+				</label>
+
+					<div id="lbirth" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="radio" th:field="*{Low_birth_weight}" name="lb"
+							value="lbYes" />Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+							<input type="radio" th:field="*{Low_birth_weight}" name="lb"
+							value="lbNo" />No
+					</div></li>
+
+				<li><label for="Birth_asphyxia"> 
+				<input type="checkbox" th:field="*{Birth_asphyxia_hypoxia}"
+						 name="bh" value="Birth_asphyxia" id="Birth_asphyxia"
+						onclick="showText3(this)" />Birth asphyxia/ hypoxia
+
+				</label>
+
+					<div id="basphyxia" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="radio" th:field="*{Birth_asphyxia_hypoxia}" name="ba"
+							value="baYes" />Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+							<input type="radio" th:field="*{Birth_asphyxia_hypoxia}" name="ba"
+							value="baNo" />No
+					</div></li>
+
+				<li><label for="NICU"> 
+				<input type="checkbox" th:field="*{NICU_stay}"
+						 name="bh" value="NICU_stay" id="NICU"
+						onclick="showText4(this)" />NICU stay
+
+				</label>
+
+					<div id="nic" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <input type="radio" th:field="*{NICU_stay}" name="ni" value="niYes" />Yes
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="radio"
+							th:field="*{NICU_stay}" name="ni" value="niNo" />No
+					</div></li>
+
+				<li><label for="Breastfeeding">
+				 <input type="checkbox" th:field="*{Breastfeeding}"
+						 name="bh" value="Breastfeeding" id="Breastfeeding"
+						onclick="showText5(this)" />Breastfeeding
+
+				</label>
+
+					<div id="bfeeding" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <input type="radio" th:field="*{Breastfeeding}" name="bf" value="bfYes" />Yes
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="radio"
+							th:field="*{Breastfeeding}" name="bf" value="bfNo" />No
+					</div></li>
+
+				<li><script type="text/javascript">
+                    function ShowHideDiv(chkConsanguinity) {
+                        var dvConsanguinity = document.getElementById("dvConsanguinity");
+                        dvConsanguinity.style.display = chkConsanguinity.checked ? "block" : "none";
+                    }
+                </script> <label for="Duration_of_breastfeeding"> 
+                <input type="checkbox"  th:field="*{Duration_of_breastfeeding}" name="bh"
+						value="Duration_of_breastfeeding" id="chkConsanguinity" onclick="ShowHideDiv(this)" />
+						Duration of breastfeeding
+				</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div class="container" id="dvConsanguinity" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Duration of breastfeeding:
+						<div class="container" style="padding-left: 25px;">
+							<input type="text" th:field="*{Duration_of_breastfeeding}" id="txt1" class="form-control mb-4 col-4" />
+						</div>
+					</div></li></ul>
+				<hr>
+
+			</div> -->
+			
+			
+			<!-- <select name="birthhistory" th:field="*{Birth_History}"
+                class="form-control mb-4 col-4" style="background: pink">
+                <option value="Select">Select</option>
+                <option value="Consanguinity">Consanguinity</option>
+                <option value="Preterm/ full term">Preterm/ full term</option>
+                <option value="Hospital delivery/ Home delivery">Hospital
+                    delivery/ Home delivery</option>
+                <option value="NVD (Normal vaginal delivery)/ LSCS">NVD
+                    (Normal vaginal delivery)/ LSCS</option>
+                <option value="Low birth weight">Low birth weight</option>
+                <option value="Birth asphyxia/ hypoxia">Birth asphyxia/
+                    hypoxia</option>
+                <option value="NICU stay">NICU stay</option>
+                <option value="Breastfeeding">Breastfeeding</option>
+                <option value="Duration of breastfeeding">Duration of
+                    breastfeeding</option>
+            </select> -->
+
+			<!-- </form> -->
+
+			<!-- <form action="Devmilestone" method="POST">  -->
+			<!-- <div class="container" th:object="${birthHistory}"> -->
+
+
+			<!-- <div th:object="${developmentalmilestone}">
+				<label><b>II. Developmental milestones :</b></label>
+				<ul>
+				<li><label for="Attained"> 
+				<input type="checkbox" th:field="*{Attained_as_per_age}"
+						 name="dm" value="Attained_as_per_age" id="Attained"
+						onclick="showText6(this)" />Attained as per age
+
+				</label>
+
+					<div id="attain" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="radio" th:field="*{Attained_as_per_age}" name="ap"
+							value="aYes" />Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+							<input type="radio" th:field="*{Attained_as_per_age}" name="ap"
+							value="aNo" />No
+					</div></li>
+
+				<li>
+				<script type="text/javascript">
+                    function ShowHideDivDevelopmental(chkDevelopmental) {
+                        var dvDevelopmental = document.getElementById("dvDevelopmental");
+                        dvDevelopmental.style.display = chkDevelopmental.checked ? "block" : "none";
+                    }
+                </script> <label for="chkDevelopmental"> 
+                <input type="checkbox" th:field="*{Gross_Motor}"  name="dm"
+						value="Gross_Motor" id="chkDevelopmental"
+						onclick="ShowHideDivDevelopmental(this)" /> Gross Motor(Maximum
+						achieved milestones- mention milestone and age at which it was
+						attained)
+				</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div id="dvDevelopmental" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Maximum achieved milestones:
+						<div class="container" style="padding-left: 25px;">
+							<input type="text" th:field="*{Gross_Motor}" id="txt2" class="form-control mb-4 col-4" />
+						</div>
+					</div></li>
+
+				<li><script type="text/javascript">
+                    function ShowHideDivFine(chkFine) {
+                        var dvFine = document.getElementById("dvFine");
+                        dvFine.style.display = chkFine.checked ? "block" : "none";
+                    }
+                </script> <label for="chkFine"> 
+                <input type="checkbox" th:field="*{Fine_motor}"
+						 name="dm" value="Fine_motor" id="chkFine"
+						onclick="ShowHideDivFine(this)" /> Fine motor
+				</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div id="dvFine" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Fine motor:
+						<div class="container" style="padding-left: 25px;">
+							<input type="text" th:field="*{Fine_motor}" id="txt3" class="form-control mb-4 col-4" />
+						</div>
+					</div></li>
+
+				<li><script type="text/javascript">
+                    function ShowHideDivLanguage(chkLanguage) {
+                        var dvLanguage = document.getElementById("dvLanguage");
+                        dvLanguage.style.display = chkLanguage.checked ? "block" : "none";
+                    }
+                </script> <label for="chkLanguage"> 
+                <input type="checkbox" th:field="*{Language}" name="dm" value="Language"
+						id="chkLanguage" onclick="ShowHideDivLanguage(this)" /> Language
+				</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div id="dvLanguage" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Language:
+						<div class="container" style="padding-left: 25px;">
+							<input type="text" th:field="*{Language}" id="txt4" class="form-control mb-4 col-4" />
+						</div>
+					</div></li>
+
+				<li><script type="text/javascript">
+                    function ShowHideDivSocial(chkSocial) {
+                        var dvSocial = document.getElementById("dvSocial");
+                        dvSocial.style.display = chkSocial.checked ? "block" : "none";
+                    }
+                </script> <label for="chkSocial"> 
+                <input type="checkbox" th:field="*{Social}"
+						 name="dm" value="Social" id="chkSocial"
+						onclick="ShowHideDivSocial(this)" /> Social
+				</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div id="dvSocial" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Social:
+						<div class="container" style="padding-left: 25px;">
+							<input type="text" th:field="*{Social}" id="txt4" class="form-control mb-4 col-4" />
+						</div>
+					</div></li>
+
+				<li><script type="text/javascript">
+                    function ShowHideDivDage(chkConsanguinity) {
+                        var dvDage = document.getElementById("dvDage");
+                        dvDage.style.display = chkDage.checked ? "block" : "none";
+                    }
+                </script> <label for="chkDage"> 
+                <input type="checkbox" th:field="*{Developmental_age}"
+						 name="dm" value="Developmental_age"
+						id="chkDage" onclick="ShowHideDivDage(this)" /> Developmental age
+				</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<div id="dvDage" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter Developmental age:
+						<div class="container" style="padding-left: 25px;">
+							<input type="text" th:field="*{Developmental_age}" id="txt4" class="form-control mb-4 col-4" />
+						</div>
+					</div></li>
+
+				<li><label for="NeuroReg"> 
+				<input type="checkbox" th:field="*{History_of_neuroregression}"
+						 name="dm" value="History_of_neuroregression" id="NeuroReg"
+						onclick="showText7(this)" />History of neuroregression
+
+				</label>
+
+					<div id="neuro" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <input type="radio" th:field="*{History_of_neuroregression}" name="nr"
+							value="nYes" />Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							 <input type="radio" th:field="*{History_of_neuroregression}" name="nr"
+							value="nNo" />No
+					</div></li>
+					</ul>
+
+			</div> -->
+			
+			
+			<!-- <label>II. Developmental Milestone :</label> <select name="Devmilestone"
+                th:field="*{developmental_MilestoneString}" class="form-control mb-4 col-4" style="background: pink">
+                <option value="Select">Select</option>
+                <option value="Attained as per age">Attained as per age</option>
+                <option value="Gross motor">Gross motor</option>
+                <option value="Fine motor">Fine motor</option>
+                <option value="Language">Language</option>
+                <option value="Social">Social</option>
+                <option value="Developmental age">Developmental age</option>
+                <option value="History of neuroregression">History of
+                    neuroregression</option>
+            </select> -->
+			<!-- </form>
+
+			<form action="Vaccinated" method="POST"> -->
+			<br> <label><b>III. Vaccinated As Per Age :</b></label>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<input type="radio"
+				th:field="*{Vaccinated_As_Per_Age}" name="vacc" value="Yes">Yes
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<input type="radio"
+				th:field="*{Vaccinated_As_Per_Age}" name="vacc" value="No">No<br>
+			<br>
+			<!-- </form>
+
+			<form action="ageseizure" method="POST"> -->
+			<label><b>IV. Age of onset of 1st seizure :</b></label>
+			 <input type="number" name="ageseizure"
+				th:field="*{Age_Of_Onset_Of_1st_Seizure}"
+				placeholder="Enter Age of onset of 1st Seizure"
+				class="form-control mb-4 col-4">
+			<!-- </form>
+
+			<form action="ageseizurerec" method="POST"> -->
+			<label><b> Age of onset of recurring seizures :</b></label> 
+			<input type="number" name="ageseizurerec"
+				th:field="*{Age_Of_Onset_Of_Recurring_Seizures}"
+				placeholder="Enter Age of onset of recurring Seizure"
+				class="form-control mb-4 col-4">
+			<!-- </form>
+
+			<form action="durillness" method="POST"> -->
+			<label><b>VI. Duration of illness(in Months) :</b></label>
+			 <input type="number" name="durillness" th:field="*{Duration_Of_Illness}"
+				placeholder="Enter Duration of illness(in Months)"
+				class="form-control mb-4 col-4">
+			<!-- </form>
+
+			<form action="timevents" method="POST"> -->
+
+			<label><b>VII. Timing of Events :</b></label>
+			 <select
+				name="timevents" th:field="*{Timing_Of_Events}"
+				class="form-control mb-4 col-4">
+				<option value="Select">Select</option>
+				<option value="Early morning on awakening">Early morning on
+					awakening</option>
+				<option value="Daytime">Daytime</option>
+				<option value="Nocturnal">Nocturnal</option>
+				<option value="No specific timing">No specific timing</option>
+			</select>
+
+			<!-- </form>
+
+			<form action="freqevent" method="POST"> -->
+
+			<label><b>VIII. Frequency of Events :</b></label> 
+			<select
+				name="freqevent" th:field="*{Frequency_Of_Events}"
+				class="form-control mb-4 col-4">
+				<option value="Select">Select</option>
+				<option value="Daily">Daily</option>
+				<option value="Weekly">Weekly</option>
+				<option value="Monthly">Monthly</option>
+				<option value="Yearly">Yearly</option>
+			</select>
+			<!-- </form> -->
+			<h5>IX. Semiology :</h5>
+
+			<!-- <form action="aura" method="POST"> -->
+			<label><b>1. Aura :</b></label> 
+			<select name="aura"
+				th:field="*{Semiology_Aura}" class="form-control mb-4 col-4">
+
+				<option value="Select">Select</option>
+				<option value="Epigastric (rising sensation)">Epigastric
+					(rising sensation)</option>
+				<option value="Emotional (fear, anxiety)">Emotional (fear,
+					anxiety)</option>
+				<option value="Olfactory">Olfactory</option>
+				<option value="Gustatory (bad taste)">Gustatory (bad taste)</option>
+				<option
+					value="Autonomic (palpitation, sweating, piloerection, cold shivers)">Autonomic
+					(palpitation, sweating, piloerection, cold shivers)</option>
+				<option value="Somatosensory">Somatosensory</option>
+				<option value="Auditory (sounds, voices)">Auditory (sounds,
+					voices)</option>
+				<option value="Visual (bright objects, hemianopia, colours)">Visual
+					(bright objects, hemianopia, colours)</option>
+				<option value="Visual (well-formed images, body dysmorphism)">Visual
+					(well-formed images, body dysmorphism)</option>
+				<option
+					value="Experiential (déjà vu, jamais vu, Alice in wonderland)">Experiential
+					(déjà vu, jamais vu, Alice in wonderland)</option>
+				<option value="Cephalic">Cephalic</option>
+				<option value="Vertiginous">Vertiginous</option>
+				<option value="Sexual">Sexual</option>
+				<option value="Unclear">Unclear</option>
+				<option value="None">None</option>
+
+			</select>
+			<!-- </form>
+
+			<form action="ictus" method="POST"> -->
+			<!-- <div class="container" th:object="${birthHistory}"> -->
+
+
+			<!-- <div class="container" th:object="${ictus}">
+				<label><b>2. Ictus :</b></label> <br> 
+				
+				<input type="checkbox"
+					th:field="*{Bilateral_tonic_clonic_seizure}"
+					value="Bilateral_tonic_clonic_seizure" />
+				Bilateral_tonic_clonic_seizure <br> 
+				
+				<input type="checkbox"
+					th:field="*{Behavioral_arrest_vacant_stare}"
+					value="Behavioral_arrest_vacant_stare" />Behavioral_arrest_vacant_stare
+				<br> <label for="automatism"> 
+				
+				<input type="checkbox" th:field="*{Automatism}" value="Automatism"
+					id="automatism" onclick="ShowHideDi(this)" /> Automatism
+				</label>
+
+				<div id="auto" style="display: none">
+
+
+					<input type="infect" th:field="*{Automatism}" class="form-control mb-4 col-4">
+					<select name="infect" id="infect" th:field="*{Automatism}"
+						class="form-control mb-4 col-4">
+						<option value="select">Select</option>
+						<option value="oral/alimentary">Oral/alimentary</option>
+						<option value="right hand">Right hand</option>
+						<option value="left Hand">Left Hand</option>
+						<option value="bilateral hand">Bilateral hand</option>
+						<option value="cycling">Cycling</option>
+						<option value="pedaling">Pedaling</option>
+
+					</select>
+
+
+
+				</div>
+				<br> <label for="speech"> 
+				
+				<input type="checkbox" th:field="*{Speech}"
+					id="speech" value="Speech" onclick="ShowHideSpeech(this)" /> Speech
+				</label>
+
+				<div id="speech1" style="display: none">
+
+
+					<input list="speech12" th:field="*{Speech}" placeholder="Speech" class="form-control mb-4 col-4">
+					<select id="speech12" th:field="*{Speech}" 
+						class="form-control mb-4 col-4">
+						<option value="select">Select</option>
+						<option value="ictal arrest">Ictal arrest</option>
+						<option value="irrelevant talk">Irrelevant talk</option>
+						<option value="muttering">Muttering</option>
+						<option value="preserved">Preserved</option>
+					</select>
+
+				</div>
+				<br> <label for="motor"> 
+				
+				<input type="checkbox" th:field="*{Motor}"
+					id="motor" value="Motor" onclick="ShowHideMotor(this)" /> Motor
+				</label>
+
+				<div id="motor1" style="display: none">
+
+
+					<input list="motor12" th:field="*{Motor}" placeholder="Motor" class="form-control mb-4 col-4">
+					<select id="motor12" th:field="*{Motor}" 
+						class="form-control mb-4 col-4">
+						<option value="select">Select</option>
+						<option value="versive head movement">Versive head
+							movement</option>
+						<option value="non versive head movement">Non versive
+							head movement</option>
+						<option value="eye adversion">Eye adversion</option>
+						<option value="facial deviation">Facial deviation</option>
+						<option value="facial twitching">Facial twitching</option>
+						<option value="tonic posturing of UL">Tonic posturing of
+							UL</option>
+						<option value="tonic posturing of LL">Tonic posturing of
+							LL</option>
+						<option value="dystonic posturing of limbs">Dystonic
+							posturing of limbs</option>
+						<option value="clonic jerking of UL">Clonic jerking of UL</option>
+						<option value="clonic jerking of LL">Clonic jerking of LL</option>
+						<option value="hypermotor">Hypermotor</option>
+						<option value="gyration">Gyration</option>
+
+
+					</select>
+
+
+
+				</div>
+				<br> <input type="checkbox" th:field="*{jacksonian_marchString}"
+					value="Jacksonian_march" />Jacksonian_march <br>
+					 <input type="checkbox" th:field="*{Autonomic_symptoms}"
+					value="Autonomic_symptoms" />Autonomic_symptoms <br>
+					 <input type="checkbox" th:field="*{Others}" value="Others" />Others <br>
+
+				<label for="arousal_State"> 
+				<input type="checkbox" th:field="*{Arousal_State}"
+					id="Arousal_State" value="Arousal_State" onclick="ShowHideArousal(this)" />
+					Arousal_State
+				</label>
+
+				<div id="arousal1" style="display: none">
+
+
+					<input list="arousal12" th:field="*{Arousal_State}" placeholder="Arousal_State"
+                    class="form-control mb-4 col-4">
+
+					<select id="arousal12" th:field="*{Arousal_State}"
+						class="form-control mb-4 col-4">
+						<option value="select">Select</option>
+						<option value="aware">Aware</option>
+						<option value="partially aware">Partially aware</option>
+						<option value="impaired awareness">Impaired awareness</option>
+						<option value="loss of consciousness">Loss of
+							consciousness</option>
+
+
+					</select>
+				</div>
+
+				<script type="text/javascript">
+                function ShowHideDivAdditional(chkAdditional) {
+                    var dvCAdditional = document.getElementById("dvAdditional");
+                    dvAdditional.style.display = chkAdditional.checked ? "block" : "none";
+                }
+            </script>
+				<label for="chkAdditional"> 
+				<input type="checkbox" th:field="*{Comment}"
+					 name="bh" value="Comment" id="chkAdditional"
+					onclick="ShowHideDivAdditional(this)" /> Any Additional Comments :
+				</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="container" id="dvAdditional" style="display: none">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Additional Comments:
+					<div class="container" style="padding-left: 25px;">
+						<input type="text" th:field="*{Comment}" id="txt7" class="form-control mb-4 col-4" />
+					</div>
+				</div>
+
+			</div> -->
+			
+			
+			<br> <label><b>3. Post Ictal State :</b></label> 
+			<select
+				name="ictal" th:field="*{Semiology_Post_Ictal_State}"
+				class="form-control mb-4 col-4">
+				<option value="Select">Select</option>
+				<option value="Confusion">Confusion</option>
+				<option value="Drowsiness">Drowsiness</option>
+				<option value="Amnesia">Amnesia</option>
+				<option value="Dysphasia">Dysphasia</option>
+				<option value="Todd's paralysis">Todd's paralysis</option>
+				<option value="Headache">Headache</option>
+				<option value="Vomiting">Vomiting</option>
+				<option value="Psychosis">Psychosis</option>
+				<option value="Sleep">Sleep</option>
+				<option value="None/ Immediate recovery">None/ Immediate
+					recovery</option>
+				<option value="Others">Others</option>
+			</select>
+			<!-- </form>
+
+			<form action="associated" method="POST"> -->
+
+			<label><b>4. Associated with :</b></label> <br> <select
+				name="associated" th:field="*{Semiology_Associated_With}"
+				class="form-control mb-4 col-4">
+				<option value="Select">Select</option>
+				<option value="Tongue bite">Tongue bite</option>
+				<option value="Urinary or fecal incontinence">Urinary or
+					fecal incontinence</option>
+				<option value="Falls">Falls</option>
+				<option value="Injury">Injury</option>
+			</select>
+			<!-- </form>
+
+			<form action="localization" method="POST"> -->
+
+			<label><b>X. Localization :</b></label><br> <select
+				name="localization" th:field="*{Localization}"
+				class="form-control mb-4 col-4">
+				<option value="Select">Select</option>
+				<option value="Frontal">Frontal</option>
+				<option value="Temporal">Temporal</option>
+				<option value="Parietal">Parietal</option>
+				<option value="Occipital">Occipital</option>
+				<option value="Insular">Insular</option>
+				<option value="Uncertain">Uncertain</option>
+			</select>
+			<!-- </form>
+
+			<form action="lateralization" method="POST">
+ -->
+			<label><b>XI. Lateralization :</b></label><br> <select
+				name="localization" th:field="*{Lateralization}"
+				class="form-control mb-4 col-4">
+				<option value="Select">Select</option>
+				<option value="Right">Right</option>
+				<option value="Left">Left</option>
+				<option value="Bilateral">Bilateral</option>
+				<option value="Uncertain">Uncertain</option>
+				<option value="Unknown">Unknown</option>
+			</select>
+			<!-- </form>
+
+			<form action="myoclonic" method="POST"> -->
+			<label><b>XII. H/O myoclonic jerks :</b></label>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+			<script>
+                function ShowHideDivmyoclonic() {
+                    var chkYes = document.getElementById("chkYes");
+                    var dvtext = document.getElementById("dvtext");
+                    dvtext.style.display = chkYes.checked ? "block" : "none";
+                }
+            </script>
+
+			<label for="chkYes"> 
+			
+			<input type="radio" id="chkYes"
+				name="chk" th:field="*{HO_Myoclonic_Jerks}" value="Yes"
+				onclick="ShowHideDivmyoclonic()" /> Yes
+				
+			</label> <label for="chkNo"> 
+			
+			<input type="radio" id="chkNo"
+				name="chk" th:field="*{HO_Myoclonic_Jerks}" value="No"
+				onclick="ShowHideDivmyoclonic()" /> No
+			</label>
+			
+			<div id="dvtext" style="display: none">
+				Enter Specific H/O Myoclonic Jerks: <select name="myoclonic"
+					th:field="*{HO_Myoclonic_Jerks}" class="form-control mb-4 col-4">
+					<option value="select">Select</option>
+					<option value="focal">Focal</option>
+					<option value="multifocal">MultiFocal</option>
+					<option value="generalised">Generalised</option>
+				</select>
+
+			</div>
+
+			<br> <br> <label><b>XIII. H/O absences :</b></label>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<script>
+                function ShowHideDiv3() {
+                    var chkYes3 = document.getElementById("chkYes3");
+                    var dvtext3 = document.getElementById("dvtext3");
+                    dvtext3.style.display = chkYes3.checked ? "block" : "none";
+                }
+            </script>
+
+			<label for="chkYes3"> 
+			
+			<input type="radio" id="chkYes3"
+				name="chk3" th:field="*{HO_Absences}" value="Yes"
+				onclick="ShowHideDiv3()" /> Yes
+				
+			</label> <label for="chkNo">
+			
+			 <input type="radio" id="chkNo3"
+				name="chk3" th:field="*{HO_Absences}" value="No"
+				onclick="ShowHideDiv3()" /> No
+			</label>
+			<div id="dvtext3" style="display: none">
+				Typical/Atypical: <input type="text" th:field="*{HO_Absences}" id="txtBox3"
+					class="form-control mb-4 col-4" />
+			</div>
+			<br> <br>
+
+			<!-- <input type="radio" name="absences" value="Yes" th:field="*{HO_Absences}">Yes
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="absences" value="No"
+                th:field="*{HO_Absences}">No<br> <br> -->
+			<!-- </form>
+
+			<form action="epilepticus" method="POST"> -->
+			<label><b>XIV. H/O status epilepticus :</b></label>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+			<script>
+                function ShowHideDivepilepticus() {
+                    var chkYesep = document.getElementById("chkYesep");
+                    var dvtextep = document.getElementById("dvtextep");
+                    dvtextep.style.display = chkYesep.checked ? "block" : "none";
+                }
+            </script>
+
+			<label for="chkYesep"> 
+			
+			<input type="radio" id="chkYesep"
+				name="chk" th:field="*{Ho_Status_Epilepticus}" value="Yes"
+				onclick="ShowHideDivepilepticus()" /> Yes
+				
+			</label> <label for="chkNoep">
+			
+			 <input type="radio" id="chkNoep"
+				name="chk" th:field="*{Ho_Status_Epilepticus}" value="No"
+				onclick="ShowHideDivepilepticus()" /> No
+			</label>
+			<div id="dvtextep" style="display: none">
+				Enter Specific H/O status epilepticus:
+				 <select name="epilepticus"
+					th:field="*{Ho_Status_Epilepticus}" class="form-control mb-4 col-4">
+					<option value="select">Select</option>
+					<option value="focal">Focal</option>
+					<option value="convulsive SE">Convulsive SE</option>
+					<option value="generalised">Generalised</option>
+					<option value="ncse">NCSE</option>
+				</select>
+
+			</div>
+			<!-- </form>
+			<form action="psychosis" method="POST"> -->
+			<br> <br> 
+			
+			<label><b>XV. H/O psychosis/anxiety/
+					depression/ADHD/Autism spectrum disorder/ others :</b></label>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<script>
+                function ShowHideDiv5() {
+                    var chkYes5 = document.getElementById("chkYes5");
+                    var dvtext5 = document.getElementById("dvtext5");
+                    dvtext5.style.display = chkYes5.checked ? "block" : "none";
+                }
+            </script>
+
+			<label for="chkYes5"> 
+			
+			<input type="radio" id="chkYes5"
+				name="chk5" th:field="*{HO_Psychosis}" value="Yes"
+				onclick="ShowHideDiv5()" /> Yes
+			
+			</label> <label for="chkNo5"> 
+			
+			<input type="radio" id="chkNo5"
+				name="chk5" th:field="*{HO_Psychosis}" value="No"
+				onclick="ShowHideDiv5()" /> No
+			</label>
+			<div id="dvtext5" style="display: none">
+				Why Yes ? &nbsp;&nbsp; 
+				
+				<input type="text" th:field="*{HO_Psychosis}"
+					id="txtBox5" />
+			</div>
+			<br> <br>
+
+
+			<!-- <input type="radio" name="psychosis" value="Yes"
+                th:field="*{HO_Psychosis}">Yes
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="psychosis" value="No"
+                th:field="*{HO_Psychosis}">No<br> <br> -->
+			<!-- </form>
+
+			<form action="lateralization" method="POST"> -->
+
+			<label><b>XVI. Antecedents :</b></label><br>
+			 <select
+				name="antecedents" th:field="*{Antecedents}"
+				class="form-control mb-4 col-4">
+				<option value="Select">Select</option>
+				<option value="Febrile Seizures">Febrile Seizures</option>
+				<option value="Head Trauma/ TBI">Head Trauma/ TBI</option>
+				<option value="Meningoencephalitis">Meningoencephalitis</option>
+				<option value="Others">Others</option>
+			</select>
+			<!-- </form>
+
+			<form action="past" method="POST"> -->
+			<label><b>XVII. Other past history, if significant :</b></label>
+			 
+			 <input type="text" name="past" th:field="*{OtherPast_His_If_Sig}"
+				placeholder="Enter Other past history"
+				class="form-control mb-4 col-4">
+			<!-- </form>
+
+			<form action="family" method="POST">
+ -->
+			<!-- <div class="container" th:object="${familyhistory}">
+				<label><b>XVIII. Family history :</b></label><br>
+				<ul>
+				<li><label for="Significant"> 
+				
+				<input type="checkbox"
+						th:field="*{Significant}" name="fh" value="Significant" id="Significant"
+						onclick="showText9(this)" />Significant
+
+				</label>
+
+					<div id="signi" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input
+							type="radio" th:field="*{Significant}" name="sy" value="sigYes" />Yes
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio"
+							th:field="*{Significant}" name="sy" value="sigNo" />No
+					</div></li>
+
+				<li><label for="Febrile">
+				
+				 <input type="checkbox"
+						th:field="*{Febrile}" name="fh" value="Febrile" id="Febrile"
+						onclick="showText10(this)" />Febrile Seizures
+
+				</label>
+
+					<div id="feb" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="radio" th:field="*{Febrile}" name="fy" value="febYes" />Yes
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="radio"
+							th:field="*{Febrile}" name="fy" value="febNo" />No
+					</div></li>
+
+				<li><label for="Epilepsy"> <input type="checkbox"
+						th:field="*{Epilepsy}" name="fh" value="Epilepsy" id="Epilepsy"
+						onclick="showText11(this)" />Epilepsy
+
+				</label>
+
+					<div id="epil" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="radio" th:field="*{Epilepsy}" name="epy" value="epYes" />Yes
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio"
+							th:field="*{Epilepsy}" name="epy" value="epNo" />No
+					</div></li>
+
+				<li><label for="Famil"> 
+				
+				<input type="checkbox"
+						th:field="*{Familial}" name="fh" value="Familial" id="Famil"
+						onclick="showText12(this)" />Familial TLE
+
+				</label>
+
+					<div id="fam" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <input type="radio" th:field="*{Familial}" name="fmy" value="famYes" />Yes
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="radio"
+							th:field="*{Familial}" name="fmy" value="famNo" />No
+					</div></li>
+
+				<li><label for="Developmental">
+				 <input type="checkbox"
+						th:field="*{Delay}" name="fh" value="Delay" id="Developmental"
+						onclick="showText13(this)" />Developmental Delay
+
+				</label>
+
+					<div id="develop" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="radio" th:field="*{Delay}" name="dey" value="devYes" />Yes
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio"
+							th:field="*{Delay}" name="dey" value="devNo" />No
+					</div></li>
+
+				<li><label for="Disable">
+				 <input type="checkbox" 
+						th:field="*{Disability}" name="fh" value="Disability" id="Disable"
+						onclick="showText14(this)" />Intellectual Disability
+
+				</label>
+
+					<div id="dis" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="radio" th:field="*{Disability}" name="diy" value="disYes" />Yes
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<input type="radio"
+							th:field="*{Disability}" name="diy" value="disNo" />No
+					</div></li>
+
+				<li><label for="Others"> 
+				<input type="checkbox"
+						th:field="*{Others}" name="fh" value="Others" id="Others"
+						onclick="showText15(this)" />Others
+
+				</label>
+
+					<div id="other" style="display: none">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <input type="text" th:field="*{Others}" class="form-control mb-4 col-4">
+
+					</div></li>
+					</ul>
+			</div> -->
+			
+			
+			<!-- <select name="family" th:field="*{Family_history}"
+                class="form-control mb-4 col-4" style="background: pink">
+                <option value="Select">Select</option>
+                <option value="Significant">Significant</option>
+                <option value="Febrile seizures ">Febrile seizures</option>
+                <option value="Epilepsy">Epilepsy</option>
+                <option value="Familial TLE ">Familial TLE</option>
+                <option value="Developmental delay">Developmental delay</option>
+                <option value="Intellectual disability">Intellectual
+                    disability</option>
+                <option value="Others">Others</option>
+            </select> -->
+
+			<!-- <li>
+                <label for="others">
+
+                    <input type="checkbox" id="others" onclick="showText(this)" />Other
+
+                </label>
+
+                <div id="other" style="display: none">
+
+                    <input type="radio" th:field="*{others}" class="form-control mb-4 col-4" name="Yes"
+                        value="Yes" />Yes
+                    <input type="radio" th:field="*{others}" class="form-control mb-4 col-4" name="Yes" value="No" />No
+                </div>
+            </li> -->
+			<!-- <li>
+                <script type="text/javascript">
+                    function ShowHideDiv(chkConsanguinity) {
+                        var dvConsanguinity = document.getElementById("dvConsanguinity");
+                        dvConsanguinity.style.display = chkConsanguinity.checked ? "block" : "none";
+                    }
+                </script>
+                <label for="chkConsanguinity">
+                    <input type="checkbox" id="chkConsanguinity" onclick="ShowHideDiv(this)" />
+                    Any Doubts?
+                </label>
+
+                <div id="dvConsanguinity" style="display: none">
+                    Doubt:
+                    <input type="text" id="txtPassportNumber" />
+                </div>
+            </li> -->
+			<!-- <li>
+                <label for="HOjerk">
+
+                    <input type="checkbox" id="HOjerk" onclick="showText8(this)" />H/O myoclonic jerks (Yes/ No)
+
+                </label>
+
+                <div id="jerk" style="display: none">
+                    <script>
+                        function ShowHideDiv2() {
+                            var chkYes = document.getElementById("chkYes");
+                            var dvtext = document.getElementById("dvtext");
+                            dvtext.style.display = chkYes.checked ? "block" : "none";
+                        }
+                    </script>
+
+                    <label for="chkYes">
+                        <input type="radio" id="chkYes" name="chk" onclick="ShowHideDiv2()" />
+                        Yes
+                    </label>
+                    <label for="chkNo">
+                        <input type="radio" id="chkNo" name="chk" onclick="ShowHideDiv2()" />
+                        No
+                    </label>
+                    <div id="dvtext" style="display: none">
+                        Text Box:
+                        <input type="text" id="txtBox" />
+                    </div>
+                </div>
+            </li> -->
+			<!-- </form> -->
+
+			<!-- <li>
+                <label>XII. H/O myoclonic jerks :</label>
+                <script>
+                    function ShowHideDiv2() {
+                        var chkYes = document.getElementById("chkYes");
+                        var dvtext = document.getElementById("dvtext");
+                        dvtext.style.display = chkYes.checked ? "block" : "none";
+                    }
+                </script>
+
+                <label for="chkYes">
+                    <input type="radio" id="chkYes" name="chk" onclick="ShowHideDiv2()" />
+                    Yes
+                </label>
+                <label for="chkNo">
+                    <input type="radio" id="chkNo" name="chk" onclick="ShowHideDiv2()" />
+                    No
+                </label>
+                <div id="dvtext" style="display: none">
+                    Text Box:
+                    <input type="text" id="txtBox" />
+                </div> -->
+
+			<!-- </li> -->
+
+
+			<!-- <a href="/display"><button type="submit" value="SUBMIT"
+					style="height: 45px; width: 260px; background: aqua; font-size: 30px; border-radius: 10px"; >SUBMIT HISTORY</button></a> 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="#"><button type="reset" value="RESET"
+					style="height: 45px; width: 260px; background: LightCoral; font-size: 30px; border-radius: 10px"; >RESET</button></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="/"><button type="button" value="BACK"
+					style="height: 45px; width: 260px; background: orange; font-size: 30px; border-radius: 10px"; >BACK</button></a> -->
+
+			<!-- <a href="@{/display}"><button type="submit" class="btn btn-info col-2">Save History</button></a>
+			<a th:href="@{/saveHistory}" class="btn btn-danger">Save</a>  -->
+
+			<!-- <input type="submit" style="width: 450; height: 30; color:red; background:lightgreen;"> -->
+
+			<button type="submit" href="/showFormForUpdate"
+				style="height: 45px; width: 260px; background: aqua; font-size: 30px; border-radius: 10px">UPDATE
+				HISTORY</button>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<button type="reset"
+				style="height: 45px; width: 260px; background: bisque; font-size: 30px; border-radius: 10px">RESET
+				HISTORY</button>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="/"><button type="button" value="BACK"
+					style="height: 45px; width: 260px; background: orange; font-size: 30px; border-radius: 10px">BACK</button></a>
+			<!--  <a href="/display"><input type="submit" style="width: 450; height: 30; color:red; background:lightgreen;">Home</a>  -->
+			<!-- <a th:href="/display"><input type="submit" class="btn btn-info col-2"> </a> -->
+		</form>
+		<br><br>
+	</div>
+</body>
+
+</html>
+
+
+
+

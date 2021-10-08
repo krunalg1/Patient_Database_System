@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <style>
+body {background-color: #effcd1;}
+h1{color: blue;}
+input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 10%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+  </style>
+  <meta charset="ISO-8859-1">
+  <title>Past Treatment And Responses</title>
+</head>
+<body>
+
+<h1>Past Treatment And Responses</h1>
+<hr>
+<form action="#"  th:action="@{/savePastHistory}" th:object="${emp}" method="POST">
+  <p>I.	Compliance <p/>
+  <input type = "radio" id = "yes" name = "option" value = "Yes" th:field="*{Compliance}">
+  <label >Yes</label><br>
+  <input type = "radio" id = "no" name = "option" value = "No" th:field="*{Compliance}">
+  <label >No</label><br>
+  <br>
+  <label for="intervals">II.	Maximum seizure free interval :</label><br>
+  <select id="intervals" name="intervals" placeholder="Select interval" th:field="*{Maximum_seizure_free_interval}">
+    <option value="Less than= 1 year" th:field="*{Maximum_seizure_free_interval}">Less than= 1 year</option>
+    <option value="1-3 years" th:field="*{Maximum_seizure_free_interval}">1-3 years</option>
+    <option value="3-5 years" th:field="*{Maximum_seizure_free_interval}">3-5 years</option>
+    <option value=">5 years" th:field="*{Maximum_seizure_free_interval}">>5 years</option>
+  </select>
+  <br>
+  <label > Exact Seizure Duration:</label><br>
+  <input type="number" th:field="*{Seizure_Duration}" placeholder ="Exact duration in months" >
+
+  <br>
+  <label for="value">III.	Current ASM :</label><br>
+  <select type="Checkbox" id="value" multiple th:field="*{Current_ASM}">
+    <option value="Phenytoin" th:field="*{Current_ASM}">Phenytoin</option>
+    <option value="Henobarbitone" th:field="*{Current_ASM}">Henobarbitone</option>
+    <option value="Carbamazepine" th:field="*{Current_ASM}">Carbamazepine</option>
+    <option value="Sodium Valproate" th:field="*{Current_ASM}">Sodium Valproate</option>
+    <option value="Lamotrigine" th:field="*{Current_ASM}">Lamotrigine</option>
+    <option value="Levetiracetam" th:field="*{Current_ASM}">Levetiracetam</option>
+    <option value="Lacosamide" th:field="*{Current_ASM}">Lacosamide</option>
+    <option value="Zonisamide" th:field="*{Current_ASM}">Zonisamide</option>
+    <option value="Oxcarbazepin" th:field="*{Current_ASM}">Oxcarbazepin</option>
+    <option value="Clobazam" th:field="*{Current_ASM}">Clobazam</option>
+    <option value="Clonazepam" th:field="*{Current_ASM}">Clonazepam</option>
+    <option value="Topiramate" th:field="*{Current_ASM}">Topiramate</option>
+    <option value="Brivaracetam" th:field="*{Current_ASM}">Brivaracetam</option>
+    <option value="Perampanel" th:field="*{Current_ASM}">Perampanel</option>
+    <option value="Nitrazepam" th:field="*{Current_ASM}">Nitrazepam</option>
+    <option value="Others">Others</option>
+  </select>
+
+  <br>
+  <label for="name">IV.	ASM tried :</label><br>
+  <select id="name"  multiple th:field="*{ASM_tried}">
+    <option value="Phenytoin" th:field="*{ASM_tried}">Phenytoin</option>
+    <option value="Henobarbitone" th:field="*{ASM_tried}">Henobarbitone</option>
+    <option value="Carbamazepine" th:field="*{ASM_tried}">Carbamazepine</option>
+    <option value="Sodium Valproate" th:field="*{ASM_tried}">Sodium Valproate</option>
+    <option value="Lamotrigine" th:field="*{ASM_tried}">Lamotrigine</option>
+    <option value="Levetiracetam" th:field="*{ASM_tried}">Levetiracetam</option>
+    <option value="Lacosamide" th:field="*{ASM_tried}">Lacosamide</option>
+    <option value="Zonisamide" th:field="*{ASM_tried}">Zonisamide</option>
+    <option value="Oxcarbazepin" th:field="*{ASM_tried}">Oxcarbazepin</option>
+    <option value="Clobazam" th:field="*{ASM_tried}">Clobazam</option>
+    <option value="Clonazepam" th:field="*{ASM_tried}">Clonazepam</option>
+    <option value="Topiramate" th:field="*{ASM_tried}">Topiramate</option>
+    <option value="Brivaracetam" th:field="*{ASM_tried}">Brivaracetam</option>
+    <option value="Perampanel" th:field="*{ASM_tried}">Perampanel</option>
+    <option value="Nitrazepam" th:field="*{ASM_tried}">Nitrazepam</option>
+    <option value="Others">Others</option>
+  </select>
+
+  <br>
+  <label >V. Adverse effects of ASM, if any:</label><br>
+  <input type="text" id="info" placeholder ="Adverse effects of ASM" th:field="*{Adverse_effects_of_ASM}"><br>
+  <button type="submit"
+          style="height: 45px; width: 260px; background: aqua; font-size: 30px; border-radius: 10px";>Update</button>
+
+
+</form>
+</body>
+</html>

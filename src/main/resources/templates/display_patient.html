@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Health Management System</title>
+
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+</head>
+<body>
+
+<div    class="container my-2">
+  <h2>Patient Data</h2>
+  <a th:href = "@{/gettingform}" class="btn btn-primary btn-sm mb-3"> Add Patient Data </a>
+  <table class="table table-striped table-hover table-dark" width="70%" border="1">
+    <thead>
+    <tr>
+
+      <!-- //<th>OPD number</th> -->
+
+      <th>OPD number</th>
+      <th>Date of Birth</th>
+      <th>Age</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>Address For Correspondence</th>
+      <th>Handedness</th>
+      <th>Family History Of left Handedness</th>
+      <th>Weight (in kg)</th>
+      <th>Education</th>
+      <th>Marital Status</th>
+      <th>Occupation</th>
+      <th>Informant</th>
+      <th>Referred by</th>
+      <th style="width : 250px">ACTION</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+
+      <tr th:each="pat : ${patient}">
+      <td th:text="${pat.opd_num}"></td>
+      <td th:text="${pat.Date}"></td>
+        <td th:text="${pat.age}"></td>
+      <td th:text="${pat.firstname}"></td>
+      <td th:text="${pat.lastname}"></td>
+      <td th:text="${pat.gender}"></td>
+        <td th:text="${pat.address}"></td>
+      <td th:text="${pat.handedness}"></td>
+      <td th:text="${pat.family_histofhand}"></td>
+      <td th:text="${pat.weight}"></td>
+      <td th:text="${pat.education}"></td>
+      <td th:text="${pat.marital_status}"></td>
+      <td th:text="${pat.Occupation}"></td>
+      <td th:text="${pat.Informant}"></td>
+      <td th:text="${pat.Referred_by}"></td>
+
+      <td> <a th:href="@{/showFormForUpdatePatient/{opd_num}(opd_num=${pat.opd_num})}" class="btn btn-primary">Update</a>
+        <a th:href="@{/deletepatient/{opd_num}(opd_num=${pat.opd_num})}" class="btn btn-danger">Delete</a>
+      </td>
+      </tr>
+
+    </tbody>
+
+  </table>
+  <a th:href = "@{/}"> Back to Home Page</a>
+</div>
+
+</body>
+</html>
